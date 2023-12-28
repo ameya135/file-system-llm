@@ -1,0 +1,19 @@
+[
+    {
+      "Name": "add.py",
+      "Description": "There are 2 numbers within the file. It adds 2 numbers and prints the result."
+    },
+    {
+      "Name": "multiply.py",
+      "Description": "There are 2 numbers within the file. It multiplies 2 numbers and prints the result"
+    },
+    {
+      "Name": "graph.py",
+      "Description": "plots a Sinusoidal graph with x and y coordinates"
+    },
+    {
+      "Name": "longest_substring.py",
+      "Description": "In summary, this code generates a basic plot of the sine function over the interval [0, 10] with labels for the x and y axes and a title."
+    }
+  ]
+  
