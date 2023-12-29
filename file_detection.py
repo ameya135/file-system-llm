@@ -4,7 +4,7 @@ import time
 import logging
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
-from file_description import describe
+from file_description import describe, update_json
 
 class MyHandler(FileSystemEventHandler):
     def on_created(self, event):
@@ -13,7 +13,14 @@ class MyHandler(FileSystemEventHandler):
         # Add your custom action here for when a file is created
         file = os.path.abspath(event.src_path)
         #print(file)
-        describe('/home/ameya/Documents/model_host/autogen/test/add4.py')
+        agent,assistant = describe(file)
+        res = agent.last_message(assistant)['content']
+        # res is a string, show me the sam,e string but remove the work TERMINATE from it,
+        res = res.replace("TERMINATE", "")
+        print("New file added!")
+        update_json(file, res)
+        time.sleep(1000)
+        
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO,
@@ -30,7 +37,8 @@ if __name__ == "__main__":
     observer.start()
     try:
         while True:
-            time.sleep(1)
+            time.sleep(1000)
+            break
     except KeyboardInterrupt:
         observer.stop()
     observer.join()
