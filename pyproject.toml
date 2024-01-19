@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "file-system-llm"
+version = "0.1.0"
+description = ""
+authors = ["Viraj Shah <viraj.v.shah03@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.13"
+pyautogen = "^0.2.7"
+watchdog = "^3.0.0"
+celery = "^5.3.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
